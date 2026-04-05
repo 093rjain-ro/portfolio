@@ -1,16 +1,12 @@
-import { lazy, PropsWithChildren, Suspense, useEffect, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 import About from "./About";
-import Career from "./Career";
 import Contact from "./Contact";
 import Cursor from "./Cursor";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
-import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
-
-const TechStack = lazy(() => import("./TechStack"));
 
 const MainContainer = ({ children }: PropsWithChildren) => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
@@ -18,6 +14,27 @@ const MainContainer = ({ children }: PropsWithChildren) => {
   );
 
   useEffect(() => {
+    // Skew Protection Checker
+    const checkVersion = async () => {
+      try {
+        const response = await fetch('/version.json?t=' + Date.now(), { cache: "no-store" });
+        const data = await response.json();
+        // @ts-ignore
+        if (typeof __APP_VERSION__ !== 'undefined' && data.version && data.version !== __APP_VERSION__) {
+          console.warn("New deployment version detected. Forcing page refresh for skew protection.");
+          window.location.reload();
+        }
+      } catch (error) {
+        console.error("Failed to check version skew", error);
+      }
+    };
+    
+    const versionInterval = setInterval(checkVersion, 60000);
+    const onVisibilityChange = () => {
+      if (document.visibilityState === 'visible') checkVersion();
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
     const resizeHandler = () => {
       setSplitText();
       setIsDesktopView(window.innerWidth > 1024);
@@ -26,6 +43,8 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     window.addEventListener("resize", resizeHandler);
     return () => {
       window.removeEventListener("resize", resizeHandler);
+      clearInterval(versionInterval);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
     };
   }, [isDesktopView]);
 
@@ -40,14 +59,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
           <div className="container-main">
             <Landing>{!isDesktopView && children}</Landing>
             <About />
-            <WhatIDo />
-            <Career />
             <Work />
-            {isDesktopView && (
-              <Suspense fallback={<div>Loading....</div>}>
-                <TechStack />
-              </Suspense>
-            )}
             <Contact />
           </div>
         </div>

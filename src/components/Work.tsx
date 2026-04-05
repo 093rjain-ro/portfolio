@@ -5,32 +5,25 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "CallHQ",
-    category: "Voice AI Calling Platform",
-    tools: "Voice AI, Calling Automation, CRM Integrations",
-    image: "/images/callhq.png",
-    link: "https://callhq.ai",
+    title: "NEURAL OS",
+    category: "High-performance human optimization",
+    tools: "React, TypeScript, AlloyDB AI, Gemini 2.0 Flash",
+    image: "/images/neural.png",
+    link: "https://neural-rj.vercel.app",
   },
   {
-    title: "Whatsapp Automation",
-    category: "WABA Application",
-    tools: "WhatsApp Business API, Workflow Automation, Notifications",
-    image: "/images/whatsapp.png",
-    link: "https://whatsapp.callhq.ai",
+    title: "Breakr OS",
+    category: "Intelligent stock discovery app",
+    tools: "TypeScript, Full Stack, Next.js",
+    image: "/images/breakr.png",
+    link: "https://github.com/093rjain-ro/breakr-os",
   },
   {
-    title: "Broki",
-    category: "Real Estate Platform for FnB Industry",
-    tools: "Property Discovery, Lead Management, Marketplace Workflows",
-    image: "/images/broki.png",
-    link: "https://broki.in",
-  },
-  {
-    title: "Orrdr.com",
-    category: "Ecommerce Platform and Mobile App",
-    tools: "Ecommerce, Mobile Experience, Order Management",
-    image: "/images/orrdr.png",
-    link: "https://orrdr.com",
+    title: "Student Performance Platform",
+    category: "Educational Dashboard App",
+    tools: "Jupyter Notebook, Python, Data Science",
+    image: "/images/student.png",
+    link: "https://github.com/093rjain-ro/my-cursor-project",
   },
 ];
 
