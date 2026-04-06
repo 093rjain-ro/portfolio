@@ -4,7 +4,7 @@ This repository contains the source code for a personal 3D portfolio built with 
 
 Live site: [https://rohan-portfolio-sand.vercel.app/](https://rohan-portfolio-sand.vercel.app/)
 
-![Portfolio Preview](public/images/iron_man.png)
+![Portfolio Preview](public/images/portfolio_preview.png)
 
 ## Table of Contents
 
