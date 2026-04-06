@@ -16,14 +16,14 @@ const projects = [
     category: "Intelligent stock discovery app",
     tools: "TypeScript, Full Stack, Next.js",
     image: "/images/breakr.png",
-    link: "https://github.com/093rjain-ro/breakr-os",
+    link: "https://breakr-3i9v61n0n-093rjain-ros-projects.vercel.app",
   },
   {
     title: "Student Performance Platform",
     category: "Educational Dashboard App",
     tools: "Jupyter Notebook, Python, Data Science",
     image: "/images/student.png",
-    link: "https://github.com/093rjain-ro/my-cursor-project",
+    link: "https://edusense-three.vercel.app",
   },
 ];
 
